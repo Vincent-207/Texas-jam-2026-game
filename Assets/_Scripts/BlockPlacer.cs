@@ -10,7 +10,7 @@ public class BlockPlacer : MonoBehaviour
     [SerializeField]
     private int availableAmount = 0;
     [SerializeField]
-    private InputActionReference clickAction, mousePos;
+    private InputActionReference clickAction, mousePos, rotateInput;
     GridController gridController;
     private Camera cam;
 
@@ -18,12 +18,13 @@ public class BlockPlacer : MonoBehaviour
     private SpriteRenderer previewSpriteIcon;
 
     BlockSelectable selectable;
+    Vector2Int blockPlaceDir = Vector2Int.right;
     void Awake()
     {
         gridController = FindAnyObjectByType<GridController>();
         // inputActions.UI.Click.started += OnClick;
         clickAction.action.started += OnClick;
-        
+        rotateInput.action.started += RotateBlock;
         cam = Camera.main;
     }
 
@@ -32,6 +33,13 @@ public class BlockPlacer : MonoBehaviour
         previewSpriteIcon.transform.localScale = gridController.transform.localScale;
         
         UpdatePreview();
+    }
+
+    void RotateBlock(InputAction.CallbackContext context)
+    {
+        float angle = previewSpriteIcon.transform.eulerAngles.z;
+        previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        blockPlaceDir = new Vector2Int(blockPlaceDir.y, -blockPlaceDir.x);
     }
 
     private void OnDisable()
@@ -87,12 +95,19 @@ public class BlockPlacer : MonoBehaviour
         if (availableAmount <= 0) return;
         
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(mousePos.action.ReadValue<Vector2>());
-        bool successfullyPlaced = gridController.TryAddBlock(gridController.WorldToGridPos(mouseWorldPos), currentBlockPrefab);
+        GameObject block = Instantiate(currentBlockPrefab);
+        bool successfullyPlaced = gridController.TryAddBlock(gridController.WorldToGridPos(mouseWorldPos), block.GetComponent<Block>());
         if (successfullyPlaced)
         {
             availableAmount--;
             UpdatePreview();
             UpdateSelectable();
+            IRotateable rotateable = block.GetComponent<IRotateable>();
+            if(rotateable != null) rotateable.SetRotate(blockPlaceDir);
+        }
+        else
+        {
+            Destroy(block);
         }
     }
 

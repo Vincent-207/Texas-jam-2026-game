@@ -9,9 +9,16 @@ public abstract class Block : MonoBehaviour
     [SerializeField]
     private Color tileColor;
     public Color TileColor => tileColor;
-    
+    public TileAnimator TileAnimator;
+    public OverlayManager overlayManager;
 
-    public abstract void Process();
+    public virtual void Awake()
+    {
+        TileAnimator = FindAnyObjectByType<TileAnimator>();
+        overlayManager = FindAnyObjectByType<OverlayManager>();
+    }
+
+    public abstract float Process();
     public virtual bool CanPush(Vector2Int direction)
     {
         
@@ -25,12 +32,13 @@ public abstract class Block : MonoBehaviour
     {
         Debug.Log("I : " + gameObject.name);
         nextPos += direction;
+        TileAnimator.DoPushGraphics(direction, transform.parent);
         Debug.Log("Getting pushed to: " + nextPos);
     }
 
     public virtual bool AreCordsInGrid(Vector2Int cords)
     {
-        if (cords.y < 0 || cords.y >= blocks.Length)
+        if (cords.y < 0 || cords.y >= blocks.GetLength(1))
         {
             return false;
         }
@@ -39,6 +47,11 @@ public abstract class Block : MonoBehaviour
             return false;
         }
         else return true;
+    }
+
+    public virtual bool IsAnimating()
+    {
+        return false;
     }
     
     

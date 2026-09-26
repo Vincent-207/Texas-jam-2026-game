@@ -9,11 +9,11 @@ public class DuplicatorBlock : Block
         nextPos = currentPos = pos;
     }
 
-    public override void Process()
+    public override float Process()
     {
         Vector2Int behind = new Vector2Int(currentPos.x - direction.x, currentPos.y - direction.y);
         Vector2Int target = new Vector2Int(currentPos.x + direction.x, currentPos.y + direction.y);
-        if (!AreCordsInGrid(behind) || !AreCordsInGrid(target)) return;
+        if (!AreCordsInGrid(behind) || !AreCordsInGrid(target)) return 0f;
 
         Block dupeTile = blocks[behind.x, behind.y];
         Block targetTile = blocks[target.x, target.y];
@@ -26,6 +26,8 @@ public class DuplicatorBlock : Block
             blocks[target.x, target.y] = newBlock;
             Debug.Log("newBlock pos: " + newBlock.currentPos);
         }
+
+        return 0f;
     }
 
     public override bool CanPush(Vector2Int direction)

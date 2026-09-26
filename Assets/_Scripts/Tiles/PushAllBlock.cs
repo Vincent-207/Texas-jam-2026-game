@@ -8,10 +8,8 @@ public class PushAllBlock : Block
         nextPos = currentPos = pos;
     }
 
-    public override void Process()
+    public override float Process()
     {
-        
-
         Block[] neighbors = new Block[9];
         for (int y = 0; y < 3; y++)
         {
@@ -29,7 +27,7 @@ public class PushAllBlock : Block
                 }
             }
         }
-        
-        
+
+        return 0f;
     }
 }

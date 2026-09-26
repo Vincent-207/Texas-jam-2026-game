@@ -10,26 +10,30 @@ public class PullBlock : Block
         nextPos = currentPos = pos;
     }
     
-    public override void Process()
+    public override float Process()
     {
         // Debug.Log("Processing Kinetic Block!");
        
         Vector2Int newCoords = currentPos + direction;
 
-        if (!AreCordsInGrid(newCoords)) return;
+        if (!AreCordsInGrid(newCoords)) return 0f;
         
         
         Block nextTile = blocks[newCoords.x, newCoords.y];
         if(nextTile == null || (nextTile != null && nextTile.CanPush(direction)))
         {
             if(nextTile != null) nextTile.Push(direction);
-            TryToPull();
+            float pullTime = TryToPull();
             nextPos += direction;
+            float animTime = TileAnimator.DoPushTween(direction, transform.parent) + pullTime;
+            return animTime;
             // Debug.Log("Updated pos: " + pos);
         }
+
+        return 0f;
     }
 
-    void TryToPull()
+    float TryToPull()
     {
         //Get closest block left.
         Block closestBlockBehind = null;
@@ -55,17 +59,18 @@ public class PullBlock : Block
         if (closestBlockBehind == null)
         {
             Debug.Log("Nothing to pull!");
-            return;
+            return 0f;
         }
         else if (closestBlockBehind.CanPush(direction))
         {
             Debug.Log("Pulling closest block!");
             closestBlockBehind.Push(direction);
+            return TileAnimator.DoPushTween(direction, closestBlockBehind.transform.parent);
         }
         else
         {
             Debug.Log("Can't pull it");
-            return;
+            return 0f;
         }
     }
 }

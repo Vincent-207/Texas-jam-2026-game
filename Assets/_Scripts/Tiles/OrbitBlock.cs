@@ -9,9 +9,10 @@ public class OrbitBlock : Block
         nextPos = currentPos = pos;
     }
 
-    public override void Process()
+    public override float Process()
     {
         Debug.Log("Processing Orbit Block!");
+        int validNeighbors = 0;
         for (int i = -1; i < 2; i++)
         {
             for (int j = -1; j < 2; j++)
@@ -30,10 +31,17 @@ public class OrbitBlock : Block
                     else rotation = new Vector2Int(-y, x);
                     rotation *= new Vector2Int(direction, direction);
 
-                    if (tile.CanPush(rotation)) tile.Push(rotation);
+                    if (tile.CanPush(rotation))
+                    {
+                        tile.Push(rotation);
+                    }
+                    validNeighbors++;
                     Debug.Log("Pushed " + tile + ": " + rotation);
+                    
                 }
             }
         }
+
+        return 0f;
     }
 }

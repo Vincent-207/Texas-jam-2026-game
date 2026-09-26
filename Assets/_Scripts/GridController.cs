@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
@@ -10,10 +10,12 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private GameObject tilePrefab;
 
+    private OverlayManager _overlayManager;
 
     void Awake()
     {
         InitTiles();
+        _overlayManager = FindAnyObjectByType<OverlayManager>();
     }
     
     void InitTiles()
@@ -35,6 +37,7 @@ public class GridController : MonoBehaviour
     public bool TryAddBlock(Vector2Int gridPos, Block block)
     {
         GridTile tile = GetTile(gridPos);
+        if(tile == null) return false;
         if (tile.GetBlock() != null) return false;
         tile.SetBlock(block);
         return true;
@@ -121,18 +124,30 @@ public class GridController : MonoBehaviour
             }
         }
         
-        //Process blocks
         
+        StartCoroutine(ProcessBlocks(blocks));
+        
+        // CreateAndUseUpdatedGrid(blocks);
+    }
+
+    IEnumerator ProcessBlocks(Block[,] blocks)
+    {
         for (int y = 0; y < gridHeight; y++)
         {
             for (int x = 0; x < gridWidth; x++)
             {
                 if(blocks[x,y] == null) continue;
-                blocks[x,y].Process();
+                float blockTime = blocks[x,y].Process();
+                yield return new WaitForSeconds(blockTime);
             }
         }
         
-        
+        StartCoroutine(WaitForAnimFinish(blocks));
+            
+    }
+
+    void CreateAndUseUpdatedGrid(Block[,] blocks)
+    {
         //Create grid with updated blocks
         Block[,] newGrid = new Block[gridWidth, gridHeight];
         for (int y = 0; y < gridHeight; y++)
@@ -157,25 +172,28 @@ public class GridController : MonoBehaviour
             }
         }
         
-        // Debug.Log("New grid!");
-        foreach (Block block in blocks)
-        {
-            if (block == null)
-            {
-                continue;
-            }
-            // else Debug.Log("Block: " + block.name);
-        }
-        
         //apply new grid to tiles.
         for (int y = 0; y < gridHeight; y++)
         {
             for (int x = 0; x < gridWidth; x++)
             {
                 tiles[x, y].SetBlock(newGrid[x, y]);
+                Coroutine a;
+                
             }
         }
     }
     
+    
+    IEnumerator  WaitForAnimFinish(Block[,] blocks)
+    {
+        yield return new WaitForSeconds(2f);
+        _overlayManager.ClearOverlays();
+        CreateAndUseUpdatedGrid(blocks);
+        yield return null;
+    }
+    
+    
 
 }
+

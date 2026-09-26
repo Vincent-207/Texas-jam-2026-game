@@ -8,9 +8,9 @@ public class ObjectiveBlock : Block
         nextPos = currentPos = pos;
     }
 
-    public override void Process()
+    public override float Process()
     {
-        return;
+        return 0f;
     }
 
     public override void Push(Vector2Int direction)
