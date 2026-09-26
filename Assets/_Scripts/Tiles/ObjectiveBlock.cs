@@ -12,4 +12,10 @@ public class ObjectiveBlock : Block
     {
         return;
     }
+
+    public override void Push(Vector2Int direction)
+    {
+        base.Push(direction);
+        Debug.Log("Getting pushed to: " + pos);
+    }
 }

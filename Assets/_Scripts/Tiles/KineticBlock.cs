@@ -12,7 +12,7 @@ public class KineticBlock : Block
 
     public override void Process()
     {
-        Debug.Log("Processing Kinetic Block!");
+        // Debug.Log("Processing Kinetic Block!");
         int x = pos.x + direction.x;
         int y = pos.x + direction.y;
         Vector2Int newPos = pos + direction;
@@ -24,7 +24,7 @@ public class KineticBlock : Block
         {
             if(nextTile != null) nextTile.Push(direction);
             pos += direction;
-            Debug.Log("Updated pos: " + pos);
+            // Debug.Log("Updated pos: " + pos);
         }
     }
 

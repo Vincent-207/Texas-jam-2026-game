@@ -33,7 +33,9 @@ public abstract class Block : MonoBehaviour
 
     public virtual void Push(Vector2Int direction)
     {
+        Debug.Log("I : " + gameObject.name);
         pos += direction;
+        Debug.Log("Getting pushed to: " + pos);
     }
 
     public virtual bool AreCordsInGrid(Vector2Int cords)
