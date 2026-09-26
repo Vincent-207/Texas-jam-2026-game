@@ -6,7 +6,8 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private GridTile[,] tiles;
 
-    [SerializeField] private int gridWidth,gridHeight;
+    [SerializeField] public int gridWidth,gridHeight;
+    
     [SerializeField]
     private GameObject tilePrefab;
 
@@ -18,8 +19,12 @@ public class GridController : MonoBehaviour
         _overlayManager = FindAnyObjectByType<OverlayManager>();
     }
     
-    void InitTiles()
+    public void InitTiles()
     {
+        if (tiles != null)
+        {
+            foreach(GridTile tile in tiles) Destroy(tile.gameObject);
+        }
         tiles = new GridTile[gridWidth, gridHeight];
         for (int row = 0; row < gridHeight; row++)
         {
@@ -31,7 +36,7 @@ public class GridController : MonoBehaviour
             }
         }
         
-        transform.position = new Vector3(transform.localScale.x * -gridWidth / 2, transform.localScale.y * -gridHeight / 2, 0);
+        //transform.position = new Vector3(transform.localScale.x * -gridWidth / 2, transform.localScale.y * -gridHeight / 2, 0);
     }
 
     public bool TryAddBlock(Vector2Int gridPos, Block block)
