@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DuplicatorBlock : Block
+public class DuplicatorBlock : Block, IRotateable
 {
     public Vector2Int direction = Vector2Int.right;
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
@@ -49,5 +49,10 @@ public class DuplicatorBlock : Block
             if (blocks[newPos.x, newPos.y] != null) return false;
         }
         return true;
+    }
+
+    public void SetRotate(Vector2Int dir)
+    {
+        this.direction = dir;
     }
 }
