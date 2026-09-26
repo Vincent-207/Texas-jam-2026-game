@@ -14,7 +14,7 @@ public class KineticBlock : Block
     {
         Debug.Log("Processing Kinetic Block!");
         int x = pos.x + direction.x;
-        int y = pos.x + direction.y;
+        int y = pos.y + direction.y;
 
         if ((x < 0 || x >= blocks.GetLength(0) || y < 0 || y >= blocks.GetLength(1)))
             return;
