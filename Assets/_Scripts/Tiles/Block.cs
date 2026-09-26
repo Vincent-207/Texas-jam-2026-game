@@ -30,7 +30,8 @@ public abstract class Block : MonoBehaviour
 
     public virtual bool AreCordsInGrid(Vector2Int cords)
     {
-        if (cords.y < 0 || cords.y >= blocks.Length)
+        Debug.Log(blocks.GetLength(1));
+        if (cords.y < 0 || cords.y >= blocks.GetLength(1))
         {
             return false;
         }
