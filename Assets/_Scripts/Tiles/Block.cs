@@ -18,6 +18,8 @@ public abstract class Block : MonoBehaviour
         overlayManager = FindAnyObjectByType<OverlayManager>();
     }
 
+    
+    //Returns time it takes to animate processing.
     public abstract float Process();
     public virtual bool CanPush(Vector2Int direction)
     {
@@ -32,7 +34,7 @@ public abstract class Block : MonoBehaviour
     {
         Debug.Log("I : " + gameObject.name);
         nextPos += direction;
-        TileAnimator.DoPushGraphics(direction, transform.parent);
+        // TileAnimator.DoPushGraphics(direction, transform.parent);
         Debug.Log("Getting pushed to: " + nextPos);
     }
 

@@ -52,4 +52,35 @@ public class TileAnimator : MonoBehaviour
         return 2 * (growTweenDuration + moveTweenDuration);
         // Debug.Log("Do it!");
     }
+
+    public float DoPushMultipleTween(Transform pusher, Vector2Int[] directions)
+    {
+        Sequence AllPushes = DOTween.Sequence();
+        for (int i = 0; i < directions.Length; i++)
+        {
+            AllPushes.Append(DoPushTween(pusher, directions[i]));
+        }
+
+        AllPushes.Play();
+        return AllPushes.Duration();
+    }
+    
+    public Sequence DoPushTween(Transform t, Vector2 dir)
+    {
+        
+        Vector3 scale = t.localScale;
+        Vector3 pos = t.localPosition;
+        SpriteRenderer spriteRenderer = t.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 1;
+        Sequence PushSequence = DOTween.Sequence();
+        PushSequence.Append(t.DOScale(scale * growScalar, growTweenDuration).SetEase(Ease.OutBounce));
+        PushSequence.Append(t.DOLocalMove(pos + (Vector3) (distance * dir), moveTweenDuration).SetEase(Ease.InQuint));
+        PushSequence.Append(t.DOLocalMove(pos, moveTweenDuration).SetEase(Ease.OutQuint));
+        PushSequence.Append(t.DOScale(scale, growTweenDuration).SetEase(Ease.OutElastic)).OnComplete(
+            () => {spriteRenderer.sortingOrder = 0; OnPushTweenComplete.Invoke();
+            });
+
+        return PushSequence;
+        // Debug.Log("Do it!");
+    }
 }

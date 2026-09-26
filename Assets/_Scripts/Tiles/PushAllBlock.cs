@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PushAllBlock : Block
@@ -11,6 +12,7 @@ public class PushAllBlock : Block
     public override float Process()
     {
         Block[] neighbors = new Block[9];
+        List<Vector2Int> pushDirections = new();
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
@@ -26,10 +28,13 @@ public class PushAllBlock : Block
                     Debug.Log(x + ", " + y);
                     Vector2Int pushDir = new Vector2Int(x - 1, y - 1);
                     if(block.CanPush(pushDir)) block.Push(pushDir);
+                    pushDirections.Add(pushDir);
                 }
             }
         }
+        
+        float dur = TileAnimator.DoPushMultipleTween(transform.parent, pushDirections.ToArray());
 
-        return 0f;
+        return dur;
     }
 }
