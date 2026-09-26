@@ -73,4 +73,9 @@ public class PullBlock : Block
             return 0f;
         }
     }
+
+    public void SetRotate(Vector2Int dir)
+    {
+        this.direction = dir;
+    }
 }
