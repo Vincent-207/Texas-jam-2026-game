@@ -6,9 +6,12 @@ public class LevelLoader : MonoBehaviour
     GridController gridController;
     [SerializeField]
     LevelDataSO levelData;
+    BlockPlacer blockPlacer;
     private void Awake()
     {
+        blockPlacer = FindAnyObjectByType<BlockPlacer>();
         gridController = transform.parent.GetComponent<GridController>();
+        
     }
 
     void Start()
@@ -24,6 +27,7 @@ public class LevelLoader : MonoBehaviour
             gridController.TryAddBlock(tileInfo.Position, block);
         }
         
+        if(levelData.blockPlaceDirection != Vector2Int.zero) blockPlacer.blockPlaceDir = levelData.blockPlaceDirection;
         
     }
 }

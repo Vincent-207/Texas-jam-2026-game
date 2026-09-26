@@ -8,6 +8,7 @@ public class LevelDataSO : ScriptableObject
     public int GridHeight => gridHeight;
     [SerializeField] private TileInfo[] tiles;
     public TileInfo[] Tiles => tiles;
+    public Vector2Int blockPlaceDirection;
 }
 
 [System.Serializable]
