@@ -4,18 +4,18 @@ public abstract class Block : MonoBehaviour
 {
     
     public Block[,] blocks;
-    public Vector2Int pos;
+    public Vector2Int currentPos, nextPos;
     public abstract void SetValues(Block[,] newBlocks, Vector2Int pos);
-    public abstract void Process();
     [SerializeField]
     private Color tileColor;
     public Color TileColor => tileColor;
     
 
+    public abstract void Process();
     public virtual bool CanPush(Vector2Int direction)
     {
         
-        Vector2Int newPos = pos + direction;
+        Vector2Int newPos = currentPos + direction;
         if(!AreCordsInGrid(newPos)) return false;
         if (blocks[newPos.x, newPos.y] != null) return false;
         return true;
@@ -23,7 +23,9 @@ public abstract class Block : MonoBehaviour
 
     public virtual void Push(Vector2Int direction)
     {
-        pos += direction;
+        Debug.Log("I : " + gameObject.name);
+        nextPos += direction;
+        Debug.Log("Getting pushed to: " + nextPos);
     }
 
     public virtual bool AreCordsInGrid(Vector2Int cords)
@@ -38,4 +40,6 @@ public abstract class Block : MonoBehaviour
         }
         else return true;
     }
+    
+    
 }
