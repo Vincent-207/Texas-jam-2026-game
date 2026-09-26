@@ -6,7 +6,7 @@ public class OrbitBlock : Block
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
     {
         blocks = newBlocks;
-        this.pos = pos;
+        nextPos = currentPos = pos;
     }
 
     public override void Process()
@@ -16,13 +16,13 @@ public class OrbitBlock : Block
         {
             for (int j = -1; j < 2; j++)
             {
-                if (!AreCordsInGrid(new Vector2Int(pos.x + i, pos.y + j))) continue;
+                if (!AreCordsInGrid(new Vector2Int(currentPos.x + i, currentPos.y + j))) continue;
 
-                Block tile = blocks[pos.x + i, pos.y + j];
+                Block tile = blocks[currentPos.x + i, currentPos.y + j];
                 if (tile != null && tile != this)
                 {
-                    int x = (pos.x + i - pos.x);
-                    int y = (pos.y + j - pos.y);
+                    int x = (currentPos.x + i - currentPos.x);
+                    int y = (currentPos.y + j - currentPos.y);
 
                     Vector2Int rotation;
                     if (x == y * direction) rotation = new Vector2Int(-y, 0);
