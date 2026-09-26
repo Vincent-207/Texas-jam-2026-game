@@ -1,6 +1,7 @@
 using System.Reflection.Metadata.Ecma335;
 using UnityEngine;
-
+//ANIMS: working
+//Overlays: working
 public class KineticBlock : Block, IRotateable
 {
     public Vector2Int direction = Vector2Int.right;
@@ -32,7 +33,8 @@ public class KineticBlock : Block, IRotateable
             nextPos += direction;
             float time = TileAnimator.DoPushGraphics(direction, transform.parent);
             overlayManager.AddOverlay(direction, transform.parent.GetComponent<GridTile>());
-            overlayManager.AddOverlay(direction, FindAnyObjectByType<GridController>().GetTile(nextPos));
+            // Debug.Log(nextTile.transform.parent.name);
+            if(nextTile != null) overlayManager.AddOverlay(direction, nextTile.GetComponentInParent<GridTile>());
             // Debug.Log("Updated pos: " + pos);
             return time;
         }

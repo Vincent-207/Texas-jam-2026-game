@@ -15,7 +15,7 @@ public class OverlayManager : MonoBehaviour
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         GameObject arrowOverlay = Instantiate(arrowOverlayPrefab, tile.transform.position, 
-            Quaternion.Euler(0f, 0f, angle), tile.transform);
+            Quaternion.Euler(0f, 0f, angle + 90f), tile.transform);
         overlays.Add(arrowOverlay.GetComponent<ArrowOverlay>());
     }
 

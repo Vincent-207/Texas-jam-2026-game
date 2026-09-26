@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f31fa848b2b29c41aacbf87fb4041f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSelectable
-  blockPrefab: {fileID: 1835199593516429899, guid: 52b2d32fdfb35c64ab48a7bce7869a01, type: 3}
+  blockPrefab: {fileID: 6116147449835809326, guid: 6d2ffd9bec5c3b944bae4e7f4597b09f, type: 3}
   count: 3
   greyedOutColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.78431374}
 --- !u!114 &294275320
@@ -1623,8 +1623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   growScalar: 1.4
-  growTweenDuration: 0.25
-  moveTweenDuration: 0.25
+  growTweenDuration: 0.1
+  moveTweenDuration: 0.1
   distance: 0.6
   tile: {fileID: 1817183716}
   OnPushTweenComplete:

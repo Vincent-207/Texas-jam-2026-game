@@ -14,12 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   gridWidth: 16
   gridHeight: 16
-  tiles:
-  - position: {x: 4, y: 1}
-    blockPrefab: {fileID: 6282076776955873191, guid: 3d3d15c7c3ef0e043b306cee738621e4, type: 3}
-  - position: {x: 4, y: 3}
-    blockPrefab: {fileID: 2852971925703924335, guid: bde9c8a805e03424cb251ccabe4123ee, type: 3}
-  - position: {x: 4, y: 5}
-    blockPrefab: {fileID: 6282076776955873191, guid: 3d3d15c7c3ef0e043b306cee738621e4, type: 3}
-  - position: {x: 7, y: 5}
-    blockPrefab: {fileID: 6282076776955873191, guid: 3d3d15c7c3ef0e043b306cee738621e4, type: 3}
+  tiles: []
