@@ -33,4 +33,8 @@ public class GridTile : MonoBehaviour
         sprite.color = block.TileColor;
     }
     
+    public void DebugSetColor(Color color)
+    {
+        sprite.color = color;
+    }
 }

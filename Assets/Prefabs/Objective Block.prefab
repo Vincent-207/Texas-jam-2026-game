@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 651015734975208743, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 651015734975208743, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77,5 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3394fe713c99ec948a6792266bf9bed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveBlock
-  pos: {x: 0, y: 0}
+  currentPos: {x: 0, y: 0}
+  nextPos: {x: 0, y: 0}
   tileColor: {r: 1, g: 0.8988909, b: 0.33773577, a: 1}
