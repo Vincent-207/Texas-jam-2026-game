@@ -5,7 +5,7 @@ public abstract class Block : MonoBehaviour
     
     public Block[,] blocks;
     public Vector2Int pos;
-    public abstract void SetValues(Block[,] tiles, Vector2Int pos);
+    public abstract void SetValues(Block[,] newBlocks, Vector2Int pos);
     public abstract void Process();
     [SerializeField]
     private Color tileColor;
@@ -16,23 +16,26 @@ public abstract class Block : MonoBehaviour
     {
         
         Vector2Int newPos = pos + direction;
-        
+        if(!AreCordsInGrid(newPos)) return false;
         if (blocks[newPos.x, newPos.y] != null) return false;
-        
-        //check if it will be pushed out of bounds to prevent error
-        if (newPos.y < 0 || newPos.y >= blocks.Length)
-        {
-            return false;
-        }
-        else if (newPos.x < 0 || newPos.x >= blocks.GetLength(0))
-        {
-            return false;
-        }
-        else return true;
+        return true;
     }
 
     public virtual void Push(Vector2Int direction)
     {
         pos += direction;
+    }
+
+    public virtual bool AreCordsInGrid(Vector2Int cords)
+    {
+        if (cords.y < 0 || cords.y >= blocks.Length)
+        {
+            return false;
+        }
+        else if (cords.x < 0 || cords.x >= blocks.GetLength(0))
+        {
+            return false;
+        }
+        else return true;
     }
 }

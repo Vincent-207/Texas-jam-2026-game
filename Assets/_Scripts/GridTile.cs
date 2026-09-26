@@ -23,7 +23,11 @@ public class GridTile : MonoBehaviour
     public void SetBlock(Block newBlock)
     {
         block = newBlock;
-        if (block == null) return;
+        if (block == null)
+        {
+            sprite.color = Color.black;
+            return;
+        }
         block.transform.position = transform.position;
         block.gameObject.transform.parent = transform;
         sprite.color = block.TileColor;

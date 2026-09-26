@@ -32,6 +32,10 @@ public class GridController : MonoBehaviour
         transform.position = new Vector3(transform.localScale.x * -gridWidth / 2, transform.localScale.y * -gridHeight / 2, 0);
     }
 
+    public GridTile getTile(Vector2Int pos)
+    {
+        return tiles[pos.x, pos.y];
+    }
     public void UpdateGrid()
     {
         Block[,] blocks = new Block[gridWidth, gridHeight];
@@ -39,8 +43,8 @@ public class GridController : MonoBehaviour
         {
             for (int x = 0; x < gridWidth; x++)
             {
-                blocks[x, y] = tiles[x, y].GetBlock();
                 if(tiles[x,y] == null) continue;
+                blocks[x, y] = tiles[x, y].GetBlock();
                 Debug.Log("Found block: " );
             }
         }
@@ -65,6 +69,15 @@ public class GridController : MonoBehaviour
                 blocks[x,y].Process();
             }
         }
+        Debug.Log("POST PROCESS!");
+        foreach (Block block in blocks)
+        {
+            if (block == null)
+            {
+                continue;
+            }
+            else Debug.Log("Block: " + block.name);
+        }
         
         
         //Create grid with updated blocks
@@ -73,6 +86,7 @@ public class GridController : MonoBehaviour
         {
             for (int x = 0; x < gridWidth; x++)
             {
+                
                 if (blocks[x, y] == null)
                 {
                     continue;
@@ -81,6 +95,16 @@ public class GridController : MonoBehaviour
                 newGrid[blockPos.x, blockPos.y] = blocks[x, y];
 
             }
+        }
+        
+        Debug.Log("New grid!");
+        foreach (Block block in blocks)
+        {
+            if (block == null)
+            {
+                continue;
+            }
+            else Debug.Log("Block: " + block.name);
         }
         
         //apply new grid to tiles.
