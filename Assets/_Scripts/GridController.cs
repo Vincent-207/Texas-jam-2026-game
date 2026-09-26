@@ -6,7 +6,7 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private GridTile[,] tiles;
 
-    [SerializeField] private int gridWidth,gridHeight;
+    [SerializeField] public int gridWidth,gridHeight;
     [SerializeField]
     private GameObject tilePrefab;
 
@@ -14,12 +14,17 @@ public class GridController : MonoBehaviour
 
     void Awake()
     {
-        InitTiles();
+        // InitTiles();
         _overlayManager = FindAnyObjectByType<OverlayManager>();
     }
     
-    void InitTiles()
+    public void InitTiles()
     {
+        if (tiles != null)
+        {
+            foreach(GridTile tile in tiles) if(tile != null) Destroy(tile.gameObject);
+            
+        }
         tiles = new GridTile[gridWidth, gridHeight];
         for (int row = 0; row < gridHeight; row++)
         {

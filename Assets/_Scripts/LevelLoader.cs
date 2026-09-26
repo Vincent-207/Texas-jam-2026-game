@@ -13,11 +13,17 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
+        gridController.gridWidth = levelData.GridWidth;
+        gridController.gridHeight = levelData.GridHeight;
+        
+        gridController.InitTiles();
         TileInfo[] tileInfos = levelData.Tiles;
         foreach (TileInfo tileInfo in tileInfos)
         {
             Block block = Instantiate(tileInfo.BlockPrefab).GetComponent<Block>();
             gridController.TryAddBlock(tileInfo.Position, block);
         }
+        
+        
     }
 }
