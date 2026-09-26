@@ -15,8 +15,10 @@ public class PushAllBlock : Block
         {
             for (int x = 0; x < 3; x++)
             {
-                
-                Block block = neighbors[y * 3 + x] = blocks[x + currentPos.x - 1, y + currentPos.y - 1];
+                Vector2Int pos = new Vector2Int(x + currentPos.x - 1, y + currentPos.y - 1);
+                if (!AreCordsInGrid(pos)) continue;
+
+                Block block = neighbors[y * 3 + x] = blocks[pos.x, pos.y];
 
                 if (block != null)
                 {
