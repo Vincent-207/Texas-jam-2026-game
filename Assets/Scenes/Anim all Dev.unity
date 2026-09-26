@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f31fa848b2b29c41aacbf87fb4041f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSelectable
-  blockPrefab: {fileID: 6116147449835809326, guid: 6d2ffd9bec5c3b944bae4e7f4597b09f, type: 3}
+  blockPrefab: {fileID: 1835199593516429899, guid: 52b2d32fdfb35c64ab48a7bce7869a01, type: 3}
   count: 3
   greyedOutColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.78431374}
 --- !u!114 &294275320
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f31fa848b2b29c41aacbf87fb4041f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSelectable
-  blockPrefab: {fileID: 3788359294029123291, guid: 54ffcca72f4147942bf4a84177d6a21c, type: 3}
+  blockPrefab: {fileID: 6282076776955873191, guid: 3d3d15c7c3ef0e043b306cee738621e4, type: 3}
   count: 3
   greyedOutColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.78431374}
 --- !u!114 &316290285
@@ -2483,7 +2483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   grid: {fileID: 71383793}
-  blockPrefab: {fileID: 2852971925703924335, guid: bde9c8a805e03424cb251ccabe4123ee, type: 3}
+  blockPrefab: {fileID: 6282076776955873191, guid: 3d3d15c7c3ef0e043b306cee738621e4, type: 3}
   pos: {x: 6, y: 3}
 --- !u!1 &1921814382
 GameObject:

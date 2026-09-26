@@ -21,7 +21,7 @@ public class PushAllBlock : Block
                 if (!AreCordsInGrid(pos)) continue;
 
                 Block block = neighbors[y * 3 + x] = blocks[pos.x, pos.y];
-
+                if(x == 1 && y == 1) continue;
                 if (block != null)
                 {
                     Debug.Log(block.name);

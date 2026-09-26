@@ -13,6 +13,7 @@ public class OrbitBlock : Block, IRotateable
     {
         Debug.Log("Processing Orbit Block!");
         int validNeighbors = 0;
+        float time = 0f;
         for (int i = -1; i < 2; i++)
         {
             for (int j = -1; j < 2; j++)
@@ -34,6 +35,7 @@ public class OrbitBlock : Block, IRotateable
                     if (tile.CanPush(rotation))
                     {
                         tile.Push(rotation);
+                        time = TileAnimator.DoPushTween(rotation, tile.transform.parent);
                     }
                     validNeighbors++;
                     Debug.Log("Pushed " + tile + ": " + rotation);
@@ -42,7 +44,7 @@ public class OrbitBlock : Block, IRotateable
             }
         }
 
-        return 0f;
+        return time;
     }
 
     public void SetRotate(Vector2Int dir)
