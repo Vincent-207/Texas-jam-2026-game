@@ -45,7 +45,7 @@ public class GridController : MonoBehaviour
             {
                 if(tiles[x,y] == null) continue;
                 blocks[x, y] = tiles[x, y].GetBlock();
-                Debug.Log("Found block: " );
+                // Debug.Log("Found block: " );
             }
         }
         
@@ -69,14 +69,14 @@ public class GridController : MonoBehaviour
                 blocks[x,y].Process();
             }
         }
-        Debug.Log("POST PROCESS!");
+        // Debug.Log("POST PROCESS!");
         foreach (Block block in blocks)
         {
             if (block == null)
             {
                 continue;
             }
-            else Debug.Log("Block: " + block.name);
+            // else Debug.Log("Block: " + block.name);
         }
         
         
@@ -97,14 +97,14 @@ public class GridController : MonoBehaviour
             }
         }
         
-        Debug.Log("New grid!");
+        // Debug.Log("New grid!");
         foreach (Block block in blocks)
         {
             if (block == null)
             {
                 continue;
             }
-            else Debug.Log("Block: " + block.name);
+            // else Debug.Log("Block: " + block.name);
         }
         
         //apply new grid to tiles.
