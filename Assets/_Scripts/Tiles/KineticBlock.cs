@@ -13,7 +13,7 @@ public class KineticBlock : Block
     public override void Process()
     {
         
-        Vector2Int newPos = currentPos + direction;
+        Vector2Int newPos = nextPos + direction;
         if (!AreCordsInGrid(newPos))
             return;
         

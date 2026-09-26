@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2645746055019633996
+--- !u!1001 &7705113334315837600
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329969978018732779, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
       propertyPath: m_Name
-      value: Kinetic Block
+      value: Orbit Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -58,26 +58,25 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8329969978018732779, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2777674979180941102}
+      addedObject: {fileID: 1300450509257646362}
   m_SourcePrefab: {fileID: 100100000, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
---- !u!1 &6282076776955873191 stripped
+--- !u!1 &1835199593516429899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8329969978018732779, guid: cb40e56c4983094468875eaae40b0f91, type: 3}
-  m_PrefabInstance: {fileID: 2645746055019633996}
+  m_PrefabInstance: {fileID: 7705113334315837600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2777674979180941102
+--- !u!114 &1300450509257646362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282076776955873191}
+  m_GameObject: {fileID: 1835199593516429899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bda922ac638b941857164245b86567, type: 3}
+  m_Script: {fileID: 11500000, guid: 311fc3bcbe083404296cae3718d2f69a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KineticBlock
-  currentPos: {x: 0, y: 0}
-  nextPos: {x: 0, y: 0}
-  tileColor: {r: 0.78867924, g: 0.21279456, b: 0.21279456, a: 1}
-  direction: {x: 1, y: 0}
+  m_EditorClassIdentifier: '::'
+  pos: {x: 0, y: 0}
+  tileColor: {r: 0.23148806, g: 0.9622642, b: 0.30711666, a: 1}
+  direction: 1
