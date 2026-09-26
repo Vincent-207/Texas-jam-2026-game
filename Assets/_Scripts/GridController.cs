@@ -95,7 +95,7 @@ public class GridController : MonoBehaviour
 
     bool IsGridPosWithinBounds(Vector2Int gridPos)
     {
-        if (gridPos.x < 0 || gridPos.x >= gridWidth || gridPos.y < 0 || gridPos.y >= gridHeight) return false;
+        if (gridPos.x < 0 || gridPos.x > gridWidth || gridPos.y < 0 || gridPos.y > gridHeight) return false;
         return true;
     }
     public void UpdateGrid()
@@ -145,6 +145,13 @@ public class GridController : MonoBehaviour
                     continue;
                 }
                 Vector2Int blockPos = blocks[x, y].nextPos;
+                if (!IsGridPosWithinBounds(blockPos))
+                {
+                    Debug.LogWarning("Block is trying to move out of bounds. I'm destroying it.");
+                    Block block = blocks[x, y];
+                    // Block block2 = newGrid[blockPos.x, blockPos.y];
+                    continue;
+                }
                 newGrid[blockPos.x, blockPos.y] = blocks[x, y];
 
             }
