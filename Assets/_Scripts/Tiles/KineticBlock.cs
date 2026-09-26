@@ -7,23 +7,21 @@ public class KineticBlock : Block
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
     {
         blocks = newBlocks;
-        this.pos = pos;
+        nextPos = currentPos = pos;
     }
 
     public override void Process()
     {
-        // Debug.Log("Processing Kinetic Block!");
-        int x = pos.x + direction.x;
-        int y = pos.x + direction.y;
-        Vector2Int newPos = pos + direction;
+        
+        Vector2Int newPos = currentPos + direction;
         if (!AreCordsInGrid(newPos))
             return;
         
-        Block nextTile = blocks[pos.x + direction.x, pos.y + direction.y];
+        Block nextTile = blocks[currentPos.x + direction.x, currentPos.y + direction.y];
         if(nextTile == null || (nextTile != null && nextTile.CanPush(direction)))
         {
             if(nextTile != null) nextTile.Push(direction);
-            pos += direction;
+            nextPos += direction;
             // Debug.Log("Updated pos: " + pos);
         }
     }
