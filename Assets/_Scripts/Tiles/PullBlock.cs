@@ -7,14 +7,14 @@ public class PullBlock : Block
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
     {
         blocks = newBlocks;
-        this.pos = pos;
+        nextPos = currentPos = pos;
     }
     
     public override void Process()
     {
         // Debug.Log("Processing Kinetic Block!");
        
-        Vector2Int newCoords = pos + direction;
+        Vector2Int newCoords = currentPos + direction;
 
         if (!AreCordsInGrid(newCoords)) return;
         
@@ -24,7 +24,7 @@ public class PullBlock : Block
         {
             if(nextTile != null) nextTile.Push(direction);
             TryToPull();
-            pos += direction;
+            nextPos += direction;
             // Debug.Log("Updated pos: " + pos);
         }
     }
@@ -33,10 +33,10 @@ public class PullBlock : Block
     {
         //Get closest block left.
         Block closestBlockBehind = null;
-        Vector2Int coordsBehind = pos - direction;
+        Vector2Int coordsBehind = currentPos - direction;
         while (closestBlockBehind == null)
         {
-            Debug.Log("pos: "  + pos);
+            Debug.Log("pos: "  + currentPos);
             Debug.Log("coordsBehind: " + coordsBehind);
             if (!AreCordsInGrid(coordsBehind)) break;
             
