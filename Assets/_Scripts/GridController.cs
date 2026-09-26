@@ -32,9 +32,71 @@ public class GridController : MonoBehaviour
         transform.position = new Vector3(transform.localScale.x * -gridWidth / 2, transform.localScale.y * -gridHeight / 2, 0);
     }
 
-    public GridTile getTile(Vector2Int pos)
+    public bool TryAddBlock(Vector2Int gridPos, Block block)
     {
+        GridTile tile = GetTile(gridPos);
+        if (tile.GetBlock() != null) return false;
+        tile.SetBlock(block);
+        return true;
+    }
+
+    public bool TryAddBlock(Vector2Int gridPos, GameObject block)
+    {
+        GridTile tile = GetTile(gridPos);
+        if(tile == null) return false;
+        if (tile.GetBlock() != null) return false;
+        Block instantiatedBlock = Instantiate(block).GetComponent<Block>();
+        tile.SetBlock(instantiatedBlock);
+        return true;
+    }
+
+    public GridTile GetTile(Vector2 worldPos)
+    {
+        return GetTile(WorldToGridPos(worldPos));
+    }
+    public GridTile GetTile(Vector2Int pos)
+    {
+        if(!IsGridPosWithinBounds(pos)) return null;
         return tiles[pos.x, pos.y];
+    }
+
+    public bool IsTilePlaceable(Vector2 worldPos)
+    {
+        Vector2Int gridPos = WorldToGridPos(worldPos);
+        if (IsGridPosWithinBounds(gridPos))
+        {
+            // Debug.Log("Is in grid");
+            if (GetTile(gridPos).GetBlock() == null) return true;
+            // Debug.Log("No null block there :(");
+        }
+
+        return false;
+    }
+
+    public bool IsPointOverGrid(Vector2 worldPos)
+    {
+        Vector2Int gridPos = WorldToGridPos(worldPos);
+        return IsGridPosWithinBounds(gridPos);
+        return true;
+    }
+
+    public Vector2Int WorldToGridPos(Vector2 worldPos)
+    {
+        // Debug.Log("world pos: " + worldPos);
+        Vector2 TwoDPos = (Vector2)transform.position;
+        Vector2 relativePos = worldPos - TwoDPos;
+        relativePos.x /= transform.localScale.x;
+        relativePos.y /= transform.localScale.y;
+        // Debug.Log("REL: " + relativePos);
+        
+        // getTile(Vector2Int.RoundToInt(relativePos)).DebugSetColor(Color.rebeccaPurple);
+        return Vector2Int.RoundToInt(relativePos);
+    }
+
+    bool IsGridPosWithinBounds(Vector2Int gridPos)
+    {
+        if (gridPos.x < 0 || gridPos.x >= gridWidth || gridPos.y < 0 || gridPos.y >= gridHeight) return false;
+        return true;
     }
     public void UpdateGrid()
     {

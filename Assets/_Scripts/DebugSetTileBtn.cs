@@ -19,7 +19,7 @@ public class DebugSetTileBtn : MonoBehaviour
     void SetTile()
     {
         Block block = Instantiate(blockPrefab).GetComponent<Block>();
-        grid.getTile(pos).SetBlock(block);
+        grid.GetTile(pos).SetBlock(block);
         
     }
 }
