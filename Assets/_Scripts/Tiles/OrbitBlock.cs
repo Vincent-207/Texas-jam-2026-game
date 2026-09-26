@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OrbitBlock : Block
+public class OrbitBlock : Block, IRotateable
 {
     public int direction = 1; // 1 is counterclockwise, -1 is clockwise
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
@@ -43,5 +43,10 @@ public class OrbitBlock : Block
         }
 
         return 0f;
+    }
+
+    public void SetRotate(Vector2Int dir)
+    {
+        this.direction *= -1;
     }
 }
