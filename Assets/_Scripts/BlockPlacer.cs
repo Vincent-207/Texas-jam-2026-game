@@ -38,9 +38,20 @@ public class BlockPlacer : MonoBehaviour
     {
         gridController = FindAnyObjectByType<GridController>();
         // inputActions.UI.Click.started += OnClick;
+        
+        cam = Camera.main;
+    }
+
+    private void OnEnable()
+    {
         clickAction.action.started += OnClick;
         rotateInput.action.started += RotateBlock;
-        cam = Camera.main;
+    }
+
+    private void OnDisable()
+    {
+        clickAction.action.started -= OnClick;
+        rotateInput.action.started -= RotateBlock;
     }
 
     void Start()
@@ -52,16 +63,14 @@ public class BlockPlacer : MonoBehaviour
 
     void RotateBlock(InputAction.CallbackContext context)
     {
+        Debug.Log("Rotating block!");
         if (previewSpriteIcon == null) return;
-        float angle = previewSpriteIcon.transform.eulerAngles.z;
-        previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         blockPlaceDir = new Vector2Int(blockPlaceDir.y, -blockPlaceDir.x);
+        float angle = previewSpriteIcon.transform.eulerAngles.z;
+        Debug.Log("Angle: " + angle);
+        previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
-    private void OnDisable()
-    {
-        clickAction.action.started -= OnClick;
-    }
 
     public void SetBlock(GameObject blockPrefab, int count, BlockSelectable selectable)
     {

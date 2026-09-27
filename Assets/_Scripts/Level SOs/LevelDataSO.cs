@@ -14,13 +14,15 @@ public class LevelDataSO : ScriptableObject
 [System.Serializable]
 public class TileInfo
 {
+    [SerializeField] private Vector2Int direction;
+    public Vector2Int Direction => direction;
     [SerializeField]
     private Vector2Int position;
     public Vector2Int Position => position;
     [SerializeField]
     private GameObject blockPrefab;
     public GameObject BlockPrefab => blockPrefab;
-
+    
     public TileInfo(Vector2Int position, GameObject blockPrefab)
     {
         this.position = position;
