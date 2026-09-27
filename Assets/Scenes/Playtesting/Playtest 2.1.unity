@@ -168,6 +168,7 @@ MonoBehaviour:
   gridWidth: 16
   gridHeight: 16
   tilePrefab: {fileID: 5123806852559867099, guid: d467c0ece448fc84c979d27f8cf056e5, type: 3}
+  gridBGPrefab: {fileID: 3472083089661682809, guid: c419ef841d70ee943b22a7f2dd35d827, type: 3}
 --- !u!1 &298166313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +1997,8 @@ MonoBehaviour:
   rotateInput: {fileID: -4550755225254707864, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   previewSpriteIcon: {fileID: 1403151912}
   blockPlaceDir: {x: 1, y: 0}
+  vectorDirSprite: {fileID: 0}
+  clockwiseDirSprite: {fileID: 0}
 --- !u!4 &1442536184
 Transform:
   m_ObjectHideFlags: 0
