@@ -17,10 +17,13 @@ public class GridController : MonoBehaviour
     private bool isReadyToRun;
     public bool IsReadyToRun => isReadyToRun;
     private List<GameObject> backgroundTiles = new();
+
+    private AudioOneShotManager _audioOneShotManager;
     void Awake()
     {
         // InitTiles();
         _overlayManager = FindAnyObjectByType<OverlayManager>();
+        _audioOneShotManager = FindAnyObjectByType<AudioOneShotManager>();
     }
     
     public void InitTiles()
@@ -173,7 +176,6 @@ public class GridController : MonoBehaviour
         {
             for (int x = 0; x < gridWidth; x++)
             {
-                
                 if (blocks[x, y] == null)
                 {
                     continue;
@@ -186,8 +188,9 @@ public class GridController : MonoBehaviour
                     // Block block2 = newGrid[blockPos.x, blockPos.y];
                     continue;
                 }
+                if(newGrid[blockPos.x, blockPos.y] != null) ShowDestruction();
                 newGrid[blockPos.x, blockPos.y] = blocks[x, y];
-
+                
             }
         }
         
@@ -201,6 +204,12 @@ public class GridController : MonoBehaviour
             }
         }
         
+    }
+
+    void ShowDestruction()
+    {
+        Debug.Log("Block is destroying/overwriting.");
+        _audioOneShotManager.PlayDestroySound();
     }
     
     
