@@ -15,3 +15,4 @@ MonoBehaviour:
   gridWidth: 16
   gridHeight: 16
   tiles: []
+  blockPlaceDirection: {x: 0, y: 0}
