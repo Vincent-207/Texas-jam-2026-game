@@ -20,9 +20,8 @@ public class PullBlock : Block, IRotateable
         
         
         Block nextTile = blocks[newCoords.x, newCoords.y];
-        if(nextTile == null || (nextTile != null && nextTile.CanPush(direction)))
+        if(nextTile == null)
         {
-            if(nextTile != null) nextTile.Push(direction);
             float pullTime = TryToPull();
             nextPos += direction;
             overlayManager.AddOverlay(direction, transform.parent.GetComponentInParent<GridTile>());

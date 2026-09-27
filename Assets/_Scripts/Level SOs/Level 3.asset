@@ -27,4 +27,7 @@ MonoBehaviour:
   - direction: {x: 0, y: 0}
     position: {x: 7, y: 1}
     blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
+  - direction: {x: 0, y: 0}
+    position: {x: 2, y: 1}
+    blockPrefab: {fileID: 1835199593516429899, guid: 52b2d32fdfb35c64ab48a7bce7869a01, type: 3}
   blockPlaceDirection: {x: 0, y: 0}
