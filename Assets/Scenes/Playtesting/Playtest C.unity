@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84fea494e856834e845cac4fb54b03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  levelData: {fileID: 11400000, guid: 5a322a8d8a9e1de41a49f73fa53e5d16, type: 2}
+  levelData: {fileID: 11400000, guid: 62ea14e2ba8b8984eb0533d2782da8ea, type: 2}
 --- !u!1 &1349623341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df7427b533548e42ad7064b562f526a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  goalPos: {x: 4, y: 9}
+  goalPos: {x: 7, y: 3}
   winPanel: {fileID: 476342457}
   goalOverlay: {fileID: 2120905818}
 --- !u!1 &1403151911
@@ -2758,7 +2758,7 @@ PrefabInstance:
     - target: {fileID: 6763748808046463280, guid: 315d397efb4bc6f4f92837246b9053bf, type: 3}
       propertyPath: blockPrefab
       value: 
-      objectReference: {fileID: 2852971925703924335, guid: bde9c8a805e03424cb251ccabe4123ee, type: 3}
+      objectReference: {fileID: 1835199593516429899, guid: 52b2d32fdfb35c64ab48a7bce7869a01, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
