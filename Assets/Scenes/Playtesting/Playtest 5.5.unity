@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df7427b533548e42ad7064b562f526a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  goalPos: {x: 3, y: 7}
+  goalPos: {x: 4, y: 7}
   winPanel: {fileID: 476342457}
   goalOverlay: {fileID: 2120905818}
 --- !u!1 &1403151911
