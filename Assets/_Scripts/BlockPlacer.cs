@@ -20,6 +20,8 @@ public class BlockPlacer : MonoBehaviour
     BlockSelectable selectable;
     [SerializeField] public Vector2Int blockPlaceDir = Vector2Int.right;
     private bool canPlace = true;
+
+    [SerializeField] private Sprite vectorDirSprite, clockwiseDirSprite;
     public void DisablePlacing()
     {
         canPlace = false;
@@ -41,6 +43,7 @@ public class BlockPlacer : MonoBehaviour
         
         cam = Camera.main;
     }
+    
 
     private void OnEnable()
     {
@@ -57,18 +60,25 @@ public class BlockPlacer : MonoBehaviour
     void Start()
     {
         previewSpriteIcon.transform.localScale = gridController.transform.localScale;
-        
         UpdatePreview();
+        SetBlock(null, 0, null);
     }
 
     void RotateBlock(InputAction.CallbackContext context)
     {
         Debug.Log("Rotating block!");
         if (previewSpriteIcon == null) return;
-        blockPlaceDir = new Vector2Int(blockPlaceDir.y, -blockPlaceDir.x);
-        float angle = previewSpriteIcon.transform.eulerAngles.z;
-        Debug.Log("Angle: " + angle);
-        previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        if (currentBlockPrefab == null) return;
+        if (IsBlockRotateable())
+        {
+            blockPlaceDir = new Vector2Int(blockPlaceDir.y, -blockPlaceDir.x);
+            float angle = previewSpriteIcon.transform.eulerAngles.z;
+            Debug.Log("Angle: " + angle);
+            previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        }
+
+        UpdatePreview();
+
     }
 
 
@@ -79,15 +89,55 @@ public class BlockPlacer : MonoBehaviour
         availableAmount = count;
         UpdatePreview();
         this.selectable = selectable;
+        
     }
 
     void UpdatePreview()
     {
-        if(availableAmount <= 0 || currentBlockPrefab == null) previewSpriteIcon.color = new Color32(255, 255, 255, 0);
+        SpriteRenderer rotationDisplay = previewSpriteIcon.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        if(availableAmount <= 0 || currentBlockPrefab == null)
+        {
+            Debug.Log("No prefab or little amount!");
+            previewSpriteIcon.enabled = false;
+            rotationDisplay.enabled = false;
+        }
         else
         {
             previewSpriteIcon.enabled = true;
             previewSpriteIcon.color = currentBlockPrefab.GetComponent<Block>().TileColor;
+            previewSpriteIcon.enabled = true;
+            rotationDisplay.enabled = true;
+        }
+        
+        Debug.Log("Hit this part!");
+        rotationDisplay.sprite = null;
+        if (IsBlockRotateable())
+        {
+            Debug.Log("Is rotateable");
+            Vector3 normalScale = rotationDisplay.transform.localScale;
+            normalScale.x = Mathf.Abs(normalScale.x);
+            rotationDisplay.transform.localScale = normalScale;
+            if (IsBlockClockWiseTypeRotate())
+            {
+                rotationDisplay.sprite = clockwiseDirSprite;
+                Vector3 flippedScale = rotationDisplay.transform.localScale;
+                if (blockPlaceDir == Vector2Int.right || blockPlaceDir == Vector2Int.left)
+                {
+                    // rotationDisplay.sprite = clockwiseDirSprite;
+                    flippedScale.x = -Mathf.Abs(flippedScale.x);
+                    rotationDisplay.transform.localScale = flippedScale;
+                }
+                else
+                {
+                        
+                    flippedScale.x = Mathf.Abs(flippedScale.x);
+                    rotationDisplay.transform.localScale = flippedScale;
+                }   
+            }
+            else
+            {
+                rotationDisplay.sprite = vectorDirSprite;
+            }
         }
         
         
@@ -96,6 +146,8 @@ public class BlockPlacer : MonoBehaviour
     void Update()
     {
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(mousePos.action.ReadValue<Vector2>());
+        bool a = gridController.IsPointOverGrid(mouseWorldPos);
+        // Debug.Log("Over grid: " +  a);
         if (gridController.IsPointOverGrid(mouseWorldPos))
         {
             previewSpriteIcon.enabled = true;
@@ -137,27 +189,30 @@ public class BlockPlacer : MonoBehaviour
         }
     }
 
-    // void PlaceBlock(Vector2 mouseWorldPos)
-    // {
-    //     Block createdBlock = Instantiate(currentBlock);
-    //     Debug.Log("Placing block!");
-    //     GridTile tile = gridController.GetTile(mouseWorldPos);
-    //     Debug.Log("Found tile");
-    //     gridController.GetTile(mouseWorldPos).SetBlock(createdBlock);
-    //     Debug.Log("Now updating");
-    //     availableAmount--;
-    //     UpdatePreview();
-    //     UpdateSelectable();
-    //     Debug.Log("Done placing block!");
-    // }
-
     void UpdateSelectable()
     {
         selectable.SetCount(availableAmount);
         
     }
-    
-    
+
+    bool IsBlockRotateable()
+    {
+        if(currentBlockPrefab == null) return false;
+        IRotateable rotateable = currentBlockPrefab.GetComponent<IRotateable>();
+        return rotateable != null;
+    }
+
+    bool IsBlockClockWiseTypeRotate()
+    {
+        if(!IsBlockRotateable()) return false;
+        IRotateable rotateable = currentBlockPrefab.GetComponent<IRotateable>();
+        return rotateable.isClockWiseRotateable();
+    }
+
+    SpriteRenderer GetRotationDisplay()
+    {
+        return previewSpriteIcon.transform.GetChild(0).GetComponent<SpriteRenderer>();
+    }
     
     
     

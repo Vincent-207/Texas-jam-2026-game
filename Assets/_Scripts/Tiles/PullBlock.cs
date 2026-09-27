@@ -79,4 +79,9 @@ public class PullBlock : Block, IRotateable
     {
         this.direction = dir;
     }
+
+    public bool isClockWiseRotateable()
+    {
+        return false;
+    }
 }

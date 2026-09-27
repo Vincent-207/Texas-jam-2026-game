@@ -57,4 +57,9 @@ public class OrbitBlock : Block, IRotateable
 
         Debug.Log("Actually Happened: " + direction);
     }
+
+    public bool isClockWiseRotateable()
+    {
+        return true;
+    }
 }

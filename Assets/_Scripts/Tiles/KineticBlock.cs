@@ -51,9 +51,16 @@ public class KineticBlock : Block, IRotateable
     {
         this.direction = dir;
     }
+
+    public bool isClockWiseRotateable()
+    {
+        return false;
+    }
 }
 
 public interface IRotateable
 {
     public void SetRotate(Vector2Int direction);
+    public bool isClockWiseRotateable();
+
 }
