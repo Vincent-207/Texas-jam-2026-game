@@ -52,6 +52,9 @@ public class OrbitBlock : Block, IRotateable
 
     public void SetRotate(Vector2Int dir)
     {
-        this.direction *= -1;
+        if (dir.y == 0) this.direction = 1;
+        else this.direction = -1;
+
+        Debug.Log("Actually Happened: " + direction);
     }
 }

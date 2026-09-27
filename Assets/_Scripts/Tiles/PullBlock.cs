@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-public class PullBlock : Block
+public class PullBlock : Block, IRotateable
 {
     public Vector2Int direction = Vector2Int.right;
     public override void SetValues(Block[,] newBlocks, Vector2Int pos)
