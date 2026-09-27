@@ -150,7 +150,7 @@ public class BlockPlacer : MonoBehaviour
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(mousePos.action.ReadValue<Vector2>());
         bool a = gridController.IsPointOverGrid(mouseWorldPos);
         // Debug.Log("Over grid: " +  a);
-        if (gridController.IsPointOverGrid(mouseWorldPos))
+        if (gridController.IsPointOverGrid(mouseWorldPos) && availableAmount > 0)
         {
             previewSpriteIcon.enabled = true;
             // previewSpriteIcon.transform.position = (Vector2) gridController.WorldToGridPos(mouseWorldPos);
