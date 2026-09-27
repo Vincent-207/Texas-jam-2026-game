@@ -2711,7 +2711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6763748808046463280, guid: 315d397efb4bc6f4f92837246b9053bf, type: 3}
       propertyPath: count
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6763748808046463280, guid: 315d397efb4bc6f4f92837246b9053bf, type: 3}
       propertyPath: blockPrefab
