@@ -1,5 +1,5 @@
-using System;
-using UnityEditor.U2D.Aseprite;
+// using System;
+// using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
