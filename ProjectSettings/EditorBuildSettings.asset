@@ -21,17 +21,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Playtesting/Playtest 5.unity
     guid: ddaa57749c44349429906e1d72072202
   - enabled: 1
+    path: Assets/Scenes/Playtesting/Playtest 5.5.unity
+    guid: 9562334860a5dba4bbc90a510c6b76f6
+  - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest A.unity
     guid: 09d0eff0b85a4f1498f1ffb030828479
   - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest B.unity
     guid: 5c3d32c11987c45499fa28e8ca90c650
   - enabled: 1
-    path: Assets/Scenes/Playtesting/Playtest 6.unity
-    guid: f84af149ce19c584b84d73a832e41373
-  - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest 7 2PushCannon.unity
     guid: bbc2dd33ea002b445ac06929c30f5a29
+  - enabled: 1
+    path: Assets/Scenes/Playtesting/Playtest 6.unity
+    guid: f84af149ce19c584b84d73a832e41373
   - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest 8.unity
     guid: f87aacfd07c83d6459ea48496e9d1693
