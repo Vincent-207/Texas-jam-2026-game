@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Playtesting/Playtest 5.5.unity
     guid: 9562334860a5dba4bbc90a510c6b76f6
   - enabled: 1
+    path: Assets/Scenes/Playtesting/Playtest 5.6.unity
+    guid: d76fbaa1aaa293a4cb20d6a8880d520f
+  - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest A.unity
     guid: 09d0eff0b85a4f1498f1ffb030828479
   - enabled: 1
