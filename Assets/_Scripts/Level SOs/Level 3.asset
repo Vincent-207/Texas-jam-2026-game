@@ -12,47 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef74d01e97f1f6540b1a5f026717bb48, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
-  gridWidth: 16
-  gridHeight: 16
+  gridWidth: 8
+  gridHeight: 2
   tiles:
-  - position: {x: 5, y: 8}
+  - direction: {x: 0, y: 0}
+    position: {x: 1, y: 1}
     blockPrefab: {fileID: 1201644622655931088, guid: 2e7813ff36f858848b1b446fc03744e2, type: 3}
-  - position: {x: 11, y: 7}
+  - direction: {x: 0, y: 0}
+    position: {x: 3, y: 1}
     blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 11, y: 8}
+  - direction: {x: 0, y: 0}
+    position: {x: 7, y: 0}
     blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 10, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 9, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 8, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 7, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 6, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 5, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 4, y: 6}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 3, y: 7}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 3, y: 8}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 10, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 9, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 8, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 7, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 6, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 5, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 4, y: 9}
-    blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
-  - position: {x: 7, y: 8}
+  - direction: {x: 0, y: 0}
+    position: {x: 7, y: 1}
     blockPrefab: {fileID: 1605948399462426035, guid: 02f5675dd02e16847a415877d46880bd, type: 3}
   blockPlaceDirection: {x: 0, y: 0}
