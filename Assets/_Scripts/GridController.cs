@@ -51,7 +51,12 @@ public class GridController : MonoBehaviour
 
     void Run(InputAction.CallbackContext ctx)
     {
-        UpdateGrid();
+        if (isReadyToRun)
+        {
+            FindAnyObjectByType<BlockPlacer>().DisablePlacing();
+            UpdateGrid();
+            
+        }
         
     }
     public void InitTiles()

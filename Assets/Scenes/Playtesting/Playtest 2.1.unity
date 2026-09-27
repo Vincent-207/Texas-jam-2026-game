@@ -169,8 +169,8 @@ MonoBehaviour:
   gridHeight: 16
   tilePrefab: {fileID: 5123806852559867099, guid: d467c0ece448fc84c979d27f8cf056e5, type: 3}
   gridBGPrefab: {fileID: 3472083089661682809, guid: c419ef841d70ee943b22a7f2dd35d827, type: 3}
-  resetInput: {fileID: 0}
-  runInput: {fileID: 0}
+  resetInput: {fileID: 1925404640195314682, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  runInput: {fileID: -9157901318362921470, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1001 &225332763
 PrefabInstance:
   m_ObjectHideFlags: 0
