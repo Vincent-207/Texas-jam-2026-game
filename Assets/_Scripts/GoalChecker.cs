@@ -1,16 +1,34 @@
+using System;
 using UnityEngine;
 
 public class GoalChecker : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Vector2Int goalPos;
+    GridController gridController;
+    [SerializeField]
+    private CanvasGroup winPanel;
+    [SerializeField]
+    private Transform goalOverlay;
+    private void Awake()
     {
-        
+        gridController = FindAnyObjectByType<GridController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        GridTile tile = gridController.GetTile(goalPos);
+        if (tile == null)
+        {
+            return;
+        } 
+        goalOverlay.position = tile.transform.position;
+        if (tile.GetBlock() == null) return;
+        if (gridController.GetTile(goalPos).GetBlock().IsObjectiveBlock())
+        {
+            winPanel.alpha = 1;
+            winPanel.blocksRaycasts = true;
+            winPanel.interactable = true;
+
+        }
     }
 }

@@ -15,16 +15,10 @@ public class TileAnimator : MonoBehaviour
     [SerializeField] private float growScalar;
     [SerializeField] private float growTweenDuration, moveTweenDuration;
     [SerializeField] private float distance;
-    [SerializeField] private GridTile tile;
     public UnityEvent OnPushTweenComplete;
     private void Awake()
     {
         if(OnPushTweenComplete == null) OnPushTweenComplete = new UnityEvent();
-    }
-
-    void Start()
-    {
-        DoPushTween(Vector2.right, tile.transform);
     }
 
     public float DoPushGraphics(Vector2 direction, Transform t)

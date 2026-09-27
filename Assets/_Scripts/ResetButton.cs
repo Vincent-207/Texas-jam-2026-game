@@ -2,20 +2,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class NextLevelButton : MonoBehaviour
+public class ResetButton : MonoBehaviour
 {
     private Button button;
-    
+
     void Awake()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(LoadNextLevel);
+        button.onClick.AddListener(OnClick);
     }
-    
-    void LoadNextLevel()
+
+    void OnClick()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        SceneManager.LoadScene(currentSceneIndex);
     }
+    
+    
     
 }
