@@ -84,4 +84,9 @@ public class PullBlock : Block, IRotateable
     {
         return false;
     }
+
+    public Vector2Int GetDirection()
+    {
+        return direction;
+    }
 }

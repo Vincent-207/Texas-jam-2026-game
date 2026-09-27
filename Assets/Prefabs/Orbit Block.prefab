@@ -77,6 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311fc3bcbe083404296cae3718d2f69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  pos: {x: 0, y: 0}
+  currentPos: {x: 0, y: 0}
+  nextPos: {x: 0, y: 0}
   tileColor: {r: 0.23148806, g: 0.9622642, b: 0.30711666, a: 1}
+  TileAnimator: {fileID: 0}
+  overlayManager: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7ffdca9466f02134480236a03379a979, type: 3}
   direction: 1

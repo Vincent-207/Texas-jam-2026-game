@@ -60,4 +60,9 @@ public class DuplicatorBlock : Block, IRotateable
     {
         return false;
     }
+
+    public Vector2Int GetDirection()
+    {
+        return direction;
+    }
 }

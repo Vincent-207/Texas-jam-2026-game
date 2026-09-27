@@ -103,10 +103,12 @@ public class BlockPlacer : MonoBehaviour
         }
         else
         {
+            Block previewBlock = currentBlockPrefab.GetComponent<Block>();
             previewSpriteIcon.enabled = true;
-            previewSpriteIcon.color = currentBlockPrefab.GetComponent<Block>().TileColor;
+            previewSpriteIcon.color = previewBlock.TileColor;
             previewSpriteIcon.enabled = true;
             rotationDisplay.enabled = true;
+            previewSpriteIcon.sprite = previewBlock.sprite;
         }
         
         Debug.Log("Hit this part!");
@@ -174,14 +176,14 @@ public class BlockPlacer : MonoBehaviour
         
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(mousePos.action.ReadValue<Vector2>());
         GameObject block = Instantiate(currentBlockPrefab);
+        IRotateable rotateable = block.GetComponent<IRotateable>();
+        if(rotateable != null) rotateable.SetRotate(blockPlaceDir);
         bool successfullyPlaced = gridController.TryAddBlock(gridController.WorldToGridPos(mouseWorldPos), block.GetComponent<Block>());
         if (successfullyPlaced)
         {
             availableAmount--;
             UpdatePreview();
             UpdateSelectable();
-            IRotateable rotateable = block.GetComponent<IRotateable>();
-            if(rotateable != null) rotateable.SetRotate(blockPlaceDir);
         }
         else
         {
@@ -212,6 +214,7 @@ public class BlockPlacer : MonoBehaviour
     SpriteRenderer GetRotationDisplay()
     {
         return previewSpriteIcon.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        
     }
     
     

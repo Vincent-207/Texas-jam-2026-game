@@ -80,4 +80,7 @@ MonoBehaviour:
   currentPos: {x: 0, y: 0}
   nextPos: {x: 0, y: 0}
   tileColor: {r: 0.78867924, g: 0.21279456, b: 0.21279456, a: 1}
+  TileAnimator: {fileID: 0}
+  overlayManager: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0760c6a845381814691e2c1a4b28ad43, type: 3}
   direction: {x: 1, y: 0}

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridController : MonoBehaviour
@@ -10,9 +11,12 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private GameObject tilePrefab;
 
+    [SerializeField] private GameObject gridBGPrefab;
+
     private OverlayManager _overlayManager;
     private bool isReadyToRun;
     public bool IsReadyToRun => isReadyToRun;
+    private List<GameObject> backgroundTiles = new();
     void Awake()
     {
         // InitTiles();
@@ -21,19 +25,24 @@ public class GridController : MonoBehaviour
     
     public void InitTiles()
     {
+        
         if (tiles != null)
         {
             foreach(GridTile tile in tiles) if(tile != null) Destroy(tile.gameObject);
             
         }
+        if(backgroundTiles != null) foreach(GameObject tile in backgroundTiles) Destroy(tile.gameObject);
+        backgroundTiles.Clear();
         tiles = new GridTile[gridWidth, gridHeight];
         for (int row = 0; row < gridHeight; row++)
         {
             for (int column = 0; column < gridWidth; column++)
             {
-                GridTile tile = tiles[column, row] = Instantiate(tilePrefab, new Vector3(column * transform.localScale.x, row * transform.localScale.y, 0f), Quaternion.identity, transform).GetComponent<GridTile>();
+                Vector3 spawnPos = new Vector3(column * transform.localScale.x, row * transform.localScale.y, 0f);
+                GridTile tile = tiles[column, row] = Instantiate(tilePrefab,spawnPos, Quaternion.identity, transform).GetComponent<GridTile>();
                 tile.transform.name = "Tile " + "(" + column + "," + row + ")";
-                
+                GameObject bgTile = Instantiate(gridBGPrefab, spawnPos, Quaternion.identity, transform);
+                backgroundTiles.Add(bgTile);
             }
         }
         

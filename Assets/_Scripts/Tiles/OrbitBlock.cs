@@ -62,4 +62,11 @@ public class OrbitBlock : Block, IRotateable
     {
         return true;
     }
+
+    public Vector2Int GetDirection()
+    {
+        Debug.LogWarning("THIS HAS ROTATION OF LEFT OR Right");
+        return Vector2Int.zero;
+        
+    }
 }
