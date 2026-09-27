@@ -82,5 +82,5 @@ MonoBehaviour:
   tileColor: {r: 1, g: 1, b: 1, a: 1}
   TileAnimator: {fileID: 0}
   overlayManager: {fileID: 0}
-  sprite: {fileID: -185382789803351514, guid: 6abd4c61725d667439123e320f48053a, type: 3}
+  sprite: {fileID: 21300000, guid: 6abd4c61725d667439123e320f48053a, type: 3}
   direction: {x: 1, y: 0}
