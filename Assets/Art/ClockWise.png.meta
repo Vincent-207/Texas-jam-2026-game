@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0760c6a845381814691e2c1a4b28ad43
+guid: 1dd22283c4474814d8280f20877afe6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4910212496471401296
-    second: PushBlock_0
+      213: 4505357784176520057
+    second: ClockWise_0
+  - first:
+      213: 3823110639287505547
+    second: ClockWise_1
+  - first:
+      213: 3831909066522670383
+    second: ClockWise_2
+  - first:
+      213: 3929347515956198419
+    second: ClockWise_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PushBlock_0
+      name: ClockWise_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 59
+        y: 222
+        width: 150
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +139,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 053acd70044942440800000000000000
-      internalID: 4910212496471401296
+      spriteID: 97be1e7c80f368e30800000000000000
+      internalID: 4505357784176520057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClockWise_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 59
+        width: 177
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b829fb7eeda6e0530800000000000000
+      internalID: 3823110639287505547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClockWise_2
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 165
+        width: 229
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25bea16efcad2530800000000000000
+      internalID: 3831909066522670383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClockWise_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 95
+        width: 110
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31cf1a74fb8d78630800000000000000
+      internalID: 3929347515956198419
       vertices: []
       indices: 
       edges: []
@@ -150,7 +225,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PushBlock_0: 4910212496471401296
+      ClockWise_0: 4505357784176520057
+      ClockWise_1: 3823110639287505547
+      ClockWise_2: 3831909066522670383
+      ClockWise_3: 3929347515956198419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

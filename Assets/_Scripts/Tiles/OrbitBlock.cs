@@ -57,4 +57,16 @@ public class OrbitBlock : Block, IRotateable
 
         Debug.Log("Actually Happened: " + direction);
     }
+
+    public bool isClockWiseRotateable()
+    {
+        return true;
+    }
+
+    public Vector2Int GetDirection()
+    {
+        Debug.LogWarning("THIS HAS ROTATION OF LEFT OR Right");
+        return Vector2Int.zero;
+        
+    }
 }

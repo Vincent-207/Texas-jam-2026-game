@@ -11,7 +11,7 @@ public abstract class Block : MonoBehaviour
     public Color TileColor => tileColor;
     public TileAnimator TileAnimator;
     public OverlayManager overlayManager;
-
+    public Sprite sprite;
     public virtual void Awake()
     {
         TileAnimator = FindAnyObjectByType<TileAnimator>();

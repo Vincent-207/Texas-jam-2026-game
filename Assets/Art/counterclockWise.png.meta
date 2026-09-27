@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0760c6a845381814691e2c1a4b28ad43
+guid: cd1e9f6063144224f8c715c3af6bd1cd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4910212496471401296
-    second: PushBlock_0
+      213: -1581762470800206540
+    second: counterclockWise_0
+  - first:
+      213: -659559596069665649
+    second: counterclockWise_1
+  - first:
+      213: -467931443404631454
+    second: counterclockWise_2
+  - first:
+      213: -673093855866395667
+    second: counterclockWise_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PushBlock_0
+      name: counterclockWise_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 52
+        y: 95
+        width: 110
+        height: 153
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +139,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 053acd70044942440800000000000000
-      internalID: 4910212496471401296
+      spriteID: 435d8e0d9637c0ae0800000000000000
+      internalID: -1581762470800206540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: counterclockWise_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 165
+        width: 229
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f844118ba06c8d6f0800000000000000
+      internalID: -659559596069665649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: counterclockWise_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 59
+        width: 177
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26291a8d4d29189f0800000000000000
+      internalID: -467931443404631454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: counterclockWise_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 222
+        width: 150
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3e59c44b0b8a6f0800000000000000
+      internalID: -673093855866395667
       vertices: []
       indices: 
       edges: []
@@ -150,7 +225,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PushBlock_0: 4910212496471401296
+      counterclockWise_0: -1581762470800206540
+      counterclockWise_1: -659559596069665649
+      counterclockWise_2: -467931443404631454
+      counterclockWise_3: -673093855866395667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
