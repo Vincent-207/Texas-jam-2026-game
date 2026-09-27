@@ -95,6 +95,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "fee2ff38-d817-4ca6-a9e9-d323c9bc8a2c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -482,6 +492,17 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "214c057e-28ed-464a-a29e-7ffe3fefa3ec",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -593,6 +614,26 @@
                     "name": "Rotate",
                     "type": "Button",
                     "id": "059c5b00-da05-479d-8a47-d258edb02e9d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "a26b3f30-fc59-4fc0-a002-ac0859c2cd5b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "0a824159-116b-4543-81de-ddae9e529a3d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1021,12 +1062,34 @@
                 },
                 {
                     "name": "",
-                    "id": "44abb427-6769-45a9-a746-b3d8fead28d9",
-                    "path": "<Keyboard>/r",
+                    "id": "1da56867-dba1-4c17-9644-09d2fc17d8de",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7aae70ab-1cdf-4013-bf02-a0cd1c03be57",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2a6a18f-433d-445b-af66-c2b7f762ac95",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

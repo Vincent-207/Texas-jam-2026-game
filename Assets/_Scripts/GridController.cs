@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GridController : MonoBehaviour
 {
@@ -17,6 +20,8 @@ public class GridController : MonoBehaviour
     private bool isReadyToRun;
     public bool IsReadyToRun => isReadyToRun;
     private List<GameObject> backgroundTiles = new();
+    [SerializeField]
+    private InputActionReference resetInput, runInput;
 
     private AudioOneShotManager _audioOneShotManager;
     void Awake()
@@ -25,7 +30,30 @@ public class GridController : MonoBehaviour
         _overlayManager = FindAnyObjectByType<OverlayManager>();
         _audioOneShotManager = FindAnyObjectByType<AudioOneShotManager>();
     }
-    
+
+    private void OnEnable()
+    {
+        resetInput.action.started += DoReset;
+        runInput.action.started += Run;
+    }
+
+    private void OnDisable()
+    {
+        resetInput.action.started -= DoReset;
+        runInput.action.started -= Run;
+    }
+
+    void DoReset(InputAction.CallbackContext ctx)
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    void Run(InputAction.CallbackContext ctx)
+    {
+        UpdateGrid();
+        
+    }
     public void InitTiles()
     {
         
