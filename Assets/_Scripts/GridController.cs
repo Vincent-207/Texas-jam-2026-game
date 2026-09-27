@@ -117,7 +117,7 @@ public class GridController : MonoBehaviour
 
     bool IsGridPosWithinBounds(Vector2Int gridPos)
     {
-        if (gridPos.x < 0 || gridPos.x > gridWidth || gridPos.y < 0 || gridPos.y > gridHeight) return false;
+        if (gridPos.x < 0 || gridPos.x >= gridWidth || gridPos.y < 0 || gridPos.y >= gridHeight) return false;
         return true;
     }
     public void UpdateGrid()
