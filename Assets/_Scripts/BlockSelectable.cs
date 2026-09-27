@@ -31,6 +31,15 @@ public class BlockSelectable : MonoBehaviour
     private void OnDisable()
     {
         button.onClick.RemoveListener(UpdateBlockPlacer);
+        image.color = greyedOutColor;
+        textBox.text = "Unavailable";
+    }
+
+    public void Disable()
+    {
+        button.onClick.RemoveListener(UpdateBlockPlacer);
+        image.color = greyedOutColor;
+        textBox.text = "Unavailable";
     }
 
     private void Start()

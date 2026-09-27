@@ -6,11 +6,13 @@ public class RunButton : MonoBehaviour
 {
     private Button button;
     GridController gridController;
+    BlockPlacer blockPlacer;
     private void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
         gridController = FindAnyObjectByType<GridController>();
+        blockPlacer = FindAnyObjectByType<BlockPlacer>();
     }
 
     void OnClick()
@@ -18,6 +20,7 @@ public class RunButton : MonoBehaviour
         if (gridController.IsReadyToRun)
         {
             gridController.UpdateGrid();
+            blockPlacer.DisablePlacing();
         }
     }
 }

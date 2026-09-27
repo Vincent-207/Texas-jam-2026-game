@@ -19,6 +19,21 @@ public class BlockPlacer : MonoBehaviour
 
     BlockSelectable selectable;
     [SerializeField] public Vector2Int blockPlaceDir = Vector2Int.right;
+    private bool canPlace = true;
+    public void DisablePlacing()
+    {
+        canPlace = false;
+        currentBlockPrefab = null;
+        availableAmount = 0;
+        previewSpriteIcon.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        UpdatePreview();
+        
+        BlockSelectable[] blockSelectables = FindObjectsByType<BlockSelectable>();
+        foreach (BlockSelectable blockSelectable in blockSelectables)
+        {
+            blockSelectable.Disable();
+        }
+    }
     void Awake()
     {
         gridController = FindAnyObjectByType<GridController>();
@@ -50,6 +65,7 @@ public class BlockPlacer : MonoBehaviour
 
     public void SetBlock(GameObject blockPrefab, int count, BlockSelectable selectable)
     {
+        if(!canPlace) return;
         currentBlockPrefab = blockPrefab;
         availableAmount = count;
         UpdatePreview();
