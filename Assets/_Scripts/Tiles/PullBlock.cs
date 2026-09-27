@@ -25,8 +25,8 @@ public class PullBlock : Block, IRotateable
             if(nextTile != null) nextTile.Push(direction);
             float pullTime = TryToPull();
             nextPos += direction;
-            float animTime = TileAnimator.DoPushTween(direction, transform.parent) + pullTime;
-            return animTime;
+            overlayManager.AddOverlay(direction, transform.parent.GetComponentInParent<GridTile>());
+            return TileAnimator.DoPushTween(direction, transform.parent);
             // Debug.Log("Updated pos: " + pos);
         }
 
@@ -65,6 +65,7 @@ public class PullBlock : Block, IRotateable
         {
             Debug.Log("Pulling closest block!");
             closestBlockBehind.Push(direction);
+            overlayManager.AddOverlay(direction, closestBlockBehind.GetComponentInParent<GridTile>());
             return TileAnimator.DoPushTween(direction, closestBlockBehind.transform.parent);
         }
         else

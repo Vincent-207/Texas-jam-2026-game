@@ -18,4 +18,9 @@ public class ObjectiveBlock : Block
         base.Push(direction);
         Debug.Log("Getting pushed to: " + nextPos);
     }
+
+    public override bool IsObjectiveBlock()
+    {
+        return true;
+    }
 }

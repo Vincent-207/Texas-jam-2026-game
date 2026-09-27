@@ -3,8 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelDataSO", menuName = "Scriptable Objects/LevelDataSO")]
 public class LevelDataSO : ScriptableObject
 {
+    [SerializeField] int gridWidth, gridHeight;
+    public int GridWidth => gridWidth;
+    public int GridHeight => gridHeight;
     [SerializeField] private TileInfo[] tiles;
     public TileInfo[] Tiles => tiles;
+    public Vector2Int blockPlaceDirection;
 }
 
 [System.Serializable]

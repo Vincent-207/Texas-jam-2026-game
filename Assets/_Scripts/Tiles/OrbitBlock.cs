@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//Anims: working
+//Overlays: 
 public class OrbitBlock : Block, IRotateable
 {
     public int direction = 1; // 1 is counterclockwise, -1 is clockwise
@@ -36,6 +38,7 @@ public class OrbitBlock : Block, IRotateable
                     {
                         tile.Push(rotation);
                         time = TileAnimator.DoPushTween(rotation, tile.transform.parent);
+                        overlayManager.AddOverlay(rotation, tile.GetComponentInParent<GridTile>());
                     }
                     validNeighbors++;
                     Debug.Log("Pushed " + tile + ": " + rotation);

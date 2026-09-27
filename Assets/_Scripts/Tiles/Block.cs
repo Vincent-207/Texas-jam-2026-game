@@ -55,6 +55,11 @@ public abstract class Block : MonoBehaviour
     {
         return false;
     }
-    
+
+
+    public virtual bool IsObjectiveBlock()
+    {
+        return false;
+    }
     
 }

@@ -6,20 +6,26 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private GridTile[,] tiles;
 
-    [SerializeField] private int gridWidth,gridHeight;
+    [SerializeField] public int gridWidth,gridHeight;
     [SerializeField]
     private GameObject tilePrefab;
 
     private OverlayManager _overlayManager;
-
+    private bool isReadyToRun;
+    public bool IsReadyToRun => isReadyToRun;
     void Awake()
     {
-        InitTiles();
+        // InitTiles();
         _overlayManager = FindAnyObjectByType<OverlayManager>();
     }
     
-    void InitTiles()
+    public void InitTiles()
     {
+        if (tiles != null)
+        {
+            foreach(GridTile tile in tiles) if(tile != null) Destroy(tile.gameObject);
+            
+        }
         tiles = new GridTile[gridWidth, gridHeight];
         for (int row = 0; row < gridHeight; row++)
         {
@@ -32,6 +38,7 @@ public class GridController : MonoBehaviour
         }
         
         transform.position = new Vector3(transform.localScale.x * -gridWidth / 2, transform.localScale.y * -gridHeight / 2, 0);
+        isReadyToRun = true;
     }
 
     public bool TryAddBlock(Vector2Int gridPos, Block block)
@@ -103,6 +110,7 @@ public class GridController : MonoBehaviour
     }
     public void UpdateGrid()
     {
+        isReadyToRun = false;
         Block[,] blocks = new Block[gridWidth, gridHeight];
         for (int y = 0; y < gridHeight; y++)
         {
@@ -138,7 +146,9 @@ public class GridController : MonoBehaviour
             {
                 if(blocks[x,y] == null) continue;
                 float blockTime = blocks[x,y].Process();
+                Debug.Log("Block Time: " + blockTime);
                 yield return new WaitForSeconds(blockTime);
+                
             }
         }
         
@@ -178,18 +188,19 @@ public class GridController : MonoBehaviour
             for (int x = 0; x < gridWidth; x++)
             {
                 tiles[x, y].SetBlock(newGrid[x, y]);
-                Coroutine a;
                 
             }
         }
+        
     }
     
     
     IEnumerator  WaitForAnimFinish(Block[,] blocks)
     {
-        yield return new WaitForSeconds(2f);
+        // yield return new WaitForSeconds(2f);
         _overlayManager.ClearOverlays();
         CreateAndUseUpdatedGrid(blocks);
+        isReadyToRun = true;
         yield return null;
     }
     

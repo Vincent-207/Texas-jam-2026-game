@@ -18,7 +18,7 @@ public class BlockPlacer : MonoBehaviour
     private SpriteRenderer previewSpriteIcon;
 
     BlockSelectable selectable;
-    Vector2Int blockPlaceDir = Vector2Int.right;
+    [SerializeField] public Vector2Int blockPlaceDir = Vector2Int.right;
     void Awake()
     {
         gridController = FindAnyObjectByType<GridController>();
