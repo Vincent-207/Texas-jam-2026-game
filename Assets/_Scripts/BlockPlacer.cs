@@ -37,6 +37,7 @@ public class BlockPlacer : MonoBehaviour
 
     void RotateBlock(InputAction.CallbackContext context)
     {
+        if (previewSpriteIcon == null) return;
         float angle = previewSpriteIcon.transform.eulerAngles.z;
         previewSpriteIcon.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         blockPlaceDir = new Vector2Int(blockPlaceDir.y, -blockPlaceDir.x);
