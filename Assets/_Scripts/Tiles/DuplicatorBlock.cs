@@ -65,4 +65,9 @@ public class DuplicatorBlock : Block, IRotateable
     {
         return direction;
     }
+
+    public int GetClockWiseDir()
+    {
+        return 0;
+    }
 }

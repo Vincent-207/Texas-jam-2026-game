@@ -40,9 +40,16 @@ public class GridTile : MonoBehaviour
         if (rotateable != null)
         {
             Vector2Int direction = rotateable.GetDirection();
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            sprite.transform.rotation = Quaternion.Euler(0, 0, angle);
-            
+            if (!rotateable.isClockWiseRotateable())
+            {
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                sprite.transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+            else
+            {
+                sprite.transform.rotation = Quaternion.Euler(0, 0, 0);
+                sprite.flipX = (rotateable.GetClockWiseDir() == -1);
+            }
         }
     }
     

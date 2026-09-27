@@ -69,4 +69,9 @@ public class OrbitBlock : Block, IRotateable
         return Vector2Int.zero;
         
     }
+
+    public int GetClockWiseDir()
+    {
+        return  direction;
+    }
 }
