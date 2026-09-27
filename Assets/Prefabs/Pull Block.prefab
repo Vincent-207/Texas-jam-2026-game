@@ -77,6 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68d3bb8fad05564c961b77c2f83ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PullBlock
-  pos: {x: 0, y: 0}
-  tileColor: {r: 0.48745444, g: 0.82641506, b: 0.15436803, a: 1}
+  currentPos: {x: 0, y: 0}
+  nextPos: {x: 0, y: 0}
+  tileColor: {r: 1, g: 1, b: 1, a: 1}
+  TileAnimator: {fileID: 0}
+  overlayManager: {fileID: 0}
+  sprite: {fileID: 0}
   direction: {x: 1, y: 0}

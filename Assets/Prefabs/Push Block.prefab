@@ -79,4 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PushAllBlock
   currentPos: {x: 0, y: 0}
   nextPos: {x: 0, y: 0}
-  tileColor: {r: 0.2040512, g: 0.4734292, b: 0.8792453, a: 1}
+  tileColor: {r: 1, g: 1, b: 1, a: 1}
+  TileAnimator: {fileID: 0}
+  overlayManager: {fileID: 0}
+  sprite: {fileID: 0}
