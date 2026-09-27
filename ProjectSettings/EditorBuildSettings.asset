@@ -44,10 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest 9.unity
     guid: b8a501ecd62fdef4e8bfe2af7ffaf72c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Playtesting/Playtest C.unity
     guid: 6698719afd7b358469b3079d6c6b0f4b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtesting/Playtest D.unity
     guid: b1c87054f27aece46bdab033459c71da
   - enabled: 1
