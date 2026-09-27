@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentPos: {x: 0, y: 0}
   nextPos: {x: 0, y: 0}
-  tileColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  tileColor: {r: 1, g: 1, b: 1, a: 1}
   TileAnimator: {fileID: 0}
   overlayManager: {fileID: 0}
   sprite: {fileID: 21300000, guid: b59d1f4abbff72f40b2c68fc201db393, type: 3}
