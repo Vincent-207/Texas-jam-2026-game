@@ -24,6 +24,8 @@ public class LevelLoader : MonoBehaviour
         foreach (TileInfo tileInfo in tileInfos)
         {
             Block block = Instantiate(tileInfo.BlockPrefab).GetComponent<Block>();
+            IRotateable rotateable = block.GetComponent<IRotateable>();
+            if(tileInfo.Direction != Vector2Int.zero && rotateable != null) rotateable.SetRotate(tileInfo.Direction); 
             gridController.TryAddBlock(tileInfo.Position, block);
         }
         
