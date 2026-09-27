@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 1143893811}
   - component: {fileID: 1143893810}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Audio Oneshotter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,6 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4489105230aa2e45a012efe73b739ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  destroySound: {fileID: 8300000, guid: 4afbe1a583cc12242a391d96b0bea3a8, type: 3}
 --- !u!4 &1143893812
 Transform:
   m_ObjectHideFlags: 0

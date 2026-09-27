@@ -62,6 +62,7 @@ public class BlockSelectable : MonoBehaviour
     {
         textBox.text = count.ToString();
         image.color = blockPrefab.GetComponent<Block>().TileColor;
+        image.sprite = blockPrefab.GetComponent<Block>().sprite;
         if(count <= 0) image.color = greyedOutColor;
     }
 }
